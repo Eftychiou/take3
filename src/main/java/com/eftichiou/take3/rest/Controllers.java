@@ -81,5 +81,11 @@ public class Controllers {
 		return new ResponseEntity<Object>(json, HttpStatus.OK);
 
 	}
+	@PostMapping("/get_room_admin")
+	public void findRoomAdmin(@RequestBody Object room){
+		System.out.println(room.toString());
+
+//		return roomDAO.findRoomAdmin( room);
+	}
 
 }

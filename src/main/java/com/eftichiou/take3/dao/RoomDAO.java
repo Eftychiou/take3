@@ -68,4 +68,14 @@ public class RoomDAO implements IRoomDAO {
 		return roomList;
 	}
 
+
+	public User findRoomAdmin(Room room){
+		Session session = entityManager.unwrap(Session.class);
+		Room theRoom = session.get(Room.class, room.getId());
+		session.beginTransaction();
+		User user =theRoom.getUser();
+		session.getTransaction().commit();
+		session.close();
+		return user;
+	}
 }
